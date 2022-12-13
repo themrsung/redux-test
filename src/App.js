@@ -14,6 +14,26 @@ function App() {
         store.dispatch({ type: "CounterDecremented" })
     }
 
+    const timesTwoHandler = () => {
+        console.log("x2 clicked")
+        store.dispatch({ type: "CounterDoubled" })
+    }
+
+    const halfHandler = () => {
+        console.log("/2 clicked")
+        store.dispatch({ type: "CounterHalved" })
+    }
+
+    const powerHandler = () => {
+        console.log("^2 clicked")
+        store.dispatch({ type: "CounterPowered" })
+    }
+
+    const logHandler = () => {
+        console.log("sqrt clicked")
+        store.dispatch({ type: "CounterLogged" })
+    }
+
     const [number, setNumber] = useState(0)
     store.subscribe(() => {
         setNumber(store.getState().value)
@@ -38,6 +58,10 @@ function App() {
                     <h1>{number}</h1>
                     <button onClick={plusOneHandler}>+1</button>
                     <button onClick={minusOneHandler}>-1</button>
+                    <button onClick={timesTwoHandler}>x2</button>
+                    <button onClick={halfHandler}>/2</button>
+                    <button onClick={powerHandler}>^2</button>
+                    <button onClick={logHandler}>sqrt</button>
                 </div>
             </header>
         </div>
