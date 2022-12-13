@@ -1,4 +1,4 @@
-import { createStore } from "@reduxjs/toolkit"
+import { configureStore } from "@reduxjs/toolkit"
 
 function counterReducer(state = { value: 0 }, action) {
     switch (action.type) {
@@ -19,7 +19,9 @@ function counterReducer(state = { value: 0 }, action) {
     }
 }
 
-let store = createStore(counterReducer)
+let store = configureStore({
+    reducer: counterReducer
+})
 
 store.subscribe(() => {
     console.log(store.getState().value)
